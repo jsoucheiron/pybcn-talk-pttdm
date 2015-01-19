@@ -96,11 +96,11 @@ def slide_2_3():
 def slide_3():
     """ Advanced "and" and "or" usage.
 
-    When concatenated "and" will give back the value
+    When concatenated, "and" will give back the value
     of the first non-true operand or True if the operands
     are True.
-    When concatenated "or" will give back the last non-true
-    value or True if all operands are True.
+    When concatenated, "or" will give back the last non-true
+    value if all arguments are False or the first True value.
     """
     print "---and---"
     print True and False and None
