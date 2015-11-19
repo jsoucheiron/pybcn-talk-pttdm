@@ -259,6 +259,7 @@ def questions():
     http://sahandsaba.com/thirty-python-language-features-and-tricks-you-may-not-know.html
     """
 
+
 def end():
     """ Thank you all!
 
@@ -287,6 +288,7 @@ def index():
         if doc is not None and k.isdigit():
             r += "{}: {}\n".format(k, doc.split('\n')[0])
     return r
+
 
 def exit():
     sys.exit(0)
