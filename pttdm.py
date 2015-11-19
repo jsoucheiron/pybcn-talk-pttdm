@@ -283,8 +283,8 @@ def print_func_result(func):
 
 def index():
     r = ""
-    for k, v in slides.iteritems():
-        doc = inspect.getdoc(v[0])
+    for k in sorted(slides, key=slides.get):
+        doc = inspect.getdoc(slides[k][0])
         if doc is not None and k.isdigit():
             r += "{}: {}\n".format(k, doc.split('\n')[0])
     return r
