@@ -259,6 +259,7 @@ def questions():
     http://sahandsaba.com/thirty-python-language-features-and-tricks-you-may-not-know.html
     """
 
+
 def end():
     """ Thank you all!
 
@@ -278,6 +279,15 @@ def print_func_result(func):
     print "--- Result start ---"
     func()
     print "--- Result end ---"
+
+
+def index():
+    r = ""
+    for k in sorted(slides, key=slides.get):
+        doc = inspect.getdoc(slides[k][0])
+        if doc is not None and k.isdigit():
+            r += "{}: {}\n".format(k, doc.split('\n')[0])
+    return r
 
 
 def exit():
@@ -330,10 +340,8 @@ if __name__ == "__main__":
                     print_func_result(func)
                     sys.stdin.readline()
             else:
-                print "Slide '{0}' not found. Available_slides: {1}".format(
-                    user_input,
-                    sorted(slides.keys())
-                )
+                print "Slide '{0}' not found. Available_slides:\n{1}".format(
+                    user_input, index())
         except Exception:
             raise
         except:
