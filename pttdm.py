@@ -280,6 +280,14 @@ def print_func_result(func):
     print "--- Result end ---"
 
 
+def index():
+    r = ""
+    for k, v in slides.iteritems():
+        doc = inspect.getdoc(v[0])
+        if doc is not None and k.isdigit():
+            r += "{}: {}\n".format(k, doc.split('\n')[0])
+    return r
+
 def exit():
     sys.exit(0)
 
@@ -330,10 +338,8 @@ if __name__ == "__main__":
                     print_func_result(func)
                     sys.stdin.readline()
             else:
-                print "Slide '{0}' not found. Available_slides: {1}".format(
-                    user_input,
-                    sorted(slides.keys())
-                )
+                print "Slide '{0}' not found. Available_slides:\n{1}".format(
+                    user_input, index())
         except Exception:
             raise
         except:
